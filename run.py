@@ -20,9 +20,10 @@ maindishes.add('Soups-and-Stews', 10)
 recipe = maindishes.pick_recipe()
 
 print("Name: %s" % recipe.name)
-print("Rating: %.2f\n\n" % recipe.rating)
+print("Rating: %.2f" % recipe.rating)
+print("URL: %s" % recipe.url)
 
-print("Ingredients:")
+print("\n\nIngredients:")
 for i in recipe.ingredients:
     print("%s %s" % (i['amount'], i['name']))
 
@@ -30,3 +31,9 @@ print("\n\nInstructions:")
 for i in range(0, len(recipe.instructions)):
     ins = recipe.instructions[i]
     print("%d. %s\n" % (i+1, ins))
+
+print("\n\nReviews:")
+print('-' * 79)
+for i in range(0, 2):
+    print(recipe.reviews[i])
+    print('-' * 79)
