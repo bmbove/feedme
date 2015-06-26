@@ -1,3 +1,4 @@
+from textwrap import fill
 from dishes import DishCollection
 
 maindishes = DishCollection() 
@@ -21,7 +22,7 @@ recipe = maindishes.pick_recipe()
 
 print("Name: %s" % recipe.name)
 print("Rating: %.2f" % recipe.rating)
-print("URL: %s" % recipe.url)
+print("URL:\n%s" % recipe.url)
 
 print("\n\nIngredients:")
 for i in recipe.ingredients:
@@ -30,10 +31,10 @@ for i in recipe.ingredients:
 print("\n\nInstructions:")
 for i in range(0, len(recipe.instructions)):
     ins = recipe.instructions[i]
-    print("%d. %s\n" % (i+1, ins))
+    print("%d. %s\n" % (i+1, fill(ins, 79)))
 
 print("\n\nReviews:")
 print('-' * 79)
 for i in range(0, 2):
-    print(recipe.reviews[i])
+    print(fill(recipe.reviews[i], 79))
     print('-' * 79)
